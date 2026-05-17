@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, Menu, nativeImage, screen, Tray } = require
 const fs = require("node:fs");
 const path = require("node:path");
 
+const appName = "desktop-pet-inosuke";
 const isDev = !app.isPackaged;
 const devUrl = "http://127.0.0.1:5173";
 const petBaseSize = { width: 190, height: 190 };
@@ -737,6 +738,7 @@ function stopDrag() {
 }
 
 app.whenReady().then(() => {
+  app.setName(appName);
   app.setAppUserModelId("com.carrott.desktop-pet");
   statePath = path.join(app.getPath("userData"), "state.json");
   if (!fs.existsSync(statePath)) {

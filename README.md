@@ -8,7 +8,7 @@
 
 https://github.com/carrrrotttt/desktop-pet-inosuke/releases
 
-下载 `desktop-pet-inosuke-0.1.0-win-x64.zip` 后解压，双击：
+下载 `desktop-pet-inosuke-0.1.1-win-x64.zip` 后解压，双击：
 
 ```text
 desktop-pet-inosuke.exe
