@@ -115,14 +115,43 @@ function PetStage({
   setMode: (mode: PetMode) => void;
 }) {
   const [frame, setFrame] = useState(0);
+  const [readyFrames, setReadyFrames] = useState<{ mode: PetMode; count: number }>({ mode: "stand", count: 1 });
   const frames = useMemo(() => getFrames(mode), [mode]);
+  const readyFrameCount = readyFrames.mode === mode ? readyFrames.count : 1;
+  const playableFrames = frames.slice(0, Math.max(1, readyFrameCount));
   const delay = mode === "stand" ? 220 : Math.max(38, frameConfig[mode].delay - speed * 5);
 
   useEffect(() => {
     setFrame(0);
+    setReadyFrames({ mode, count: mode === "stand" ? 1 : 0 });
+    const loadedIndexes = new Set<number>();
+    let cancelled = false;
+
+    frames.forEach((src, index) => {
+      const image = new Image();
+      image.onload = () => {
+        if (cancelled) {
+          return;
+        }
+        loadedIndexes.add(index);
+        let nextReadyCount = 0;
+        while (loadedIndexes.has(nextReadyCount)) {
+          nextReadyCount += 1;
+        }
+        setReadyFrames({ mode, count: Math.max(1, nextReadyCount) });
+      };
+      image.src = src;
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [frames, mode]);
+
+  useEffect(() => {
     const timer = window.setInterval(() => setFrame((value) => value + 1), delay);
     return () => window.clearInterval(timer);
-  }, [delay, mode]);
+  }, [delay, mode, playableFrames.length]);
 
   return (
     <div className="pet-stage" aria-label="桌面宠物动态原型">
@@ -141,7 +170,7 @@ function PetStage({
       </div>
       <img
         className={`portfolio-pet ${mode === "running" ? "pet-moving" : ""}`}
-        src={frames[frame % frames.length]}
+        src={playableFrames[frame % playableFrames.length]}
         alt="伊之助桌面宠物动画"
         style={{ width: `${Math.round(160 * scale)}px` }}
         draggable={false}
