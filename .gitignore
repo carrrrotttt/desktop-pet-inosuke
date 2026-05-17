@@ -141,3 +141,11 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# desktop-pet-inosuke local/private files
+release/
+dev-*.log
+state.json
+*.local.json
+Desktop Pet/
+desktop-pet-inosuke/
