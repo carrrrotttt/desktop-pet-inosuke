@@ -9,6 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
+        app: resolve(__dirname, "app.html"),
         "ai-desktop-pet-inosuke": resolve(__dirname, "ai-desktop-pet-inosuke.html"),
         portfolio: resolve(__dirname, "portfolio.html"),
       },

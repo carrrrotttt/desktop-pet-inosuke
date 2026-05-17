@@ -253,9 +253,9 @@ function writeState(nextState) {
 function getRendererUrl(kind, params = {}) {
   const search = new URLSearchParams({ window: kind, ...params }).toString();
   if (isDev) {
-    return `${devUrl}/?${search}`;
+    return `${devUrl}/app.html?${search}`;
   }
-  return `file://${path.join(__dirname, "../dist/index.html")}?${search}`;
+  return `file://${path.join(__dirname, "../dist/app.html")}?${search}`;
 }
 
 function getIconPath(name) {
