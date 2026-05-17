@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Bold, CheckSquare, MessageCircle, Pause, Pin, Play, RotateCcw, Settings, X } from "lucide-react";
 import "./styles.css";
@@ -17,6 +17,11 @@ const llmPresets: Record<LlmProvider, Pick<LlmSettings, "baseUrl" | "modelId" | 
   qwen: {
     baseUrl: "https://dashscope.aliyuncs.com/compatible-mode/v1",
     modelId: "qwen-plus",
+    apiFormat: "openai-chat",
+  },
+  hunyuan: {
+    baseUrl: "https://api.hunyuan.cloud.tencent.com/v1",
+    modelId: "hunyuan-turbos-latest",
     apiFormat: "openai-chat",
   },
   openrouter: {
@@ -702,6 +707,7 @@ function SettingsPopover({
             <option value="openai">OpenAI</option>
             <option value="deepseek">DeepSeek</option>
             <option value="qwen">千问</option>
+            <option value="hunyuan">混元</option>
             <option value="openrouter">OpenRouter</option>
             <option value="custom">自定义</option>
           </select>

@@ -13,7 +13,7 @@ type PetMode =
   | "thinking"
   | "squatting"
   | "upsideDown";
-type LlmProvider = "openai" | "deepseek" | "qwen" | "openrouter" | "custom";
+type LlmProvider = "openai" | "deepseek" | "qwen" | "hunyuan" | "openrouter" | "custom";
 type LlmApiFormat = "openai-chat";
 
 type PetViewState = {

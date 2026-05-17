@@ -55,6 +55,11 @@ const llmPresets = {
     modelId: "qwen-plus",
     apiFormat: "openai-chat",
   },
+  hunyuan: {
+    baseUrl: "https://api.hunyuan.cloud.tencent.com/v1",
+    modelId: "hunyuan-turbos-latest",
+    apiFormat: "openai-chat",
+  },
   openrouter: {
     baseUrl: "https://openrouter.ai/api/v1",
     modelId: "openai/gpt-4o-mini",

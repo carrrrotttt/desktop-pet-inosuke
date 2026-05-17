@@ -8,7 +8,7 @@
 
 https://github.com/carrrrotttt/desktop-pet-inosuke/releases
 
-下载 `desktop-pet-inosuke-0.1.1-win-x64.zip` 后解压，双击：
+下载 `desktop-pet-inosuke-0.1.2-win-x64.zip` 后解压，双击：
 
 ```text
 desktop-pet-inosuke.exe
@@ -40,7 +40,7 @@ desktop-pet-inosuke.exe
 
 进入设置后填写模型调用信息：
 
-- 服务商：OpenAI、DeepSeek、千问、OpenRouter 或自定义。
+- 服务商：OpenAI、DeepSeek、千问、混元、OpenRouter 或自定义。
 - API Key：需要你自己填写。
 - Base URL 和 Model ID：选择常见服务商时会自动填入默认值，也可以手动修改。
 - 测试连接：用于确认配置是否可用。
