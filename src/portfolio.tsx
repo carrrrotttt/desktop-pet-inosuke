@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   Clock3,
   Coffee,
+  Github,
   MessageCircle,
   Pause,
   Pin,
@@ -484,6 +485,15 @@ function App() {
               </a>
               <a className="text-button" href="#product">
                 查看核心场景
+              </a>
+              <a
+                className="text-button"
+                href="https://github.com/carrrrotttt/desktop-pet-inosuke.git"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Github size={16} />
+                GitHub 仓库
               </a>
             </div>
             <div className="metric-strip" aria-label="项目能力摘要">
