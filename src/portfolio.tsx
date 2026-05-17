@@ -48,7 +48,7 @@ const chatReplies = [
 ];
 
 function assetPath(path: string) {
-  return new URL(`./${path}`, window.location.href).toString();
+  return `${import.meta.env.BASE_URL}${path}`;
 }
 
 function getFrames(mode: PetMode) {
